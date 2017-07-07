@@ -1,0 +1,20 @@
+function onEdit() {
+var s = SpreadsheetApp.getActiveSheet();
+if( s.getName() == "Customer Issues" ) { //checks that we're on the correct sheet
+var r = s.getActiveCell();
+if( r.getColumn() == 5  && r.getValue() == "Open") { //checks the column and a particular value selection
+var nextCell = r.offset(0, 2);
+var time = new Date();
+  time = Utilities.formatDate(time, "GMT+5:30", "dd-MM-yyyy HH:mm:ss");
+//if( nextCell.getValue() !== '' ) //is empty?
+nextCell.setValue(time);
+}
+if( r.getColumn() == 5  && r.getValue()== "Resolved") { //checks the column and a particular value selection
+var nextCell = r.offset(0, 3);
+var time = new Date();
+  time = Utilities.formatDate(time, "GMT+5:30", "dd-MM-yyyy HH:mm:ss");
+//if( nextCell.getValue() !== '' ) //is empty?
+nextCell.setValue(time);
+}
+}
+}
