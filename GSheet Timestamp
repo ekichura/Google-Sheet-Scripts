@@ -1,0 +1,8 @@
+function Edit(){
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+ s = SpreadsheetApp.setActiveSheet(ss.getSheetByName('Funnel'));
+  s1 = SpreadsheetApp.setActiveRange(ss.getRange('A2'));
+  var time = new Date();
+  time = Utilities.formatDate(time, "GMT+5:30", "dd-MM-yyyy HH:mm:ss");
+  s1.setValue(time)
+}
