@@ -1,0 +1,21 @@
+function Copy() {
+  var myFolder = DriveApp.getFolderById('0B2PwyKqWpg8oZGRjaXB4dllYZkk');
+
+thisFile = myFolder.getFilesByName('Data.xlsx');
+
+while (thisFile.hasNext()) {
+  var eachFile = thisFile.next();
+  var idToDLET = eachFile.getId();
+  Logger.log('idToDLET: ' + idToDLET);
+
+};
+ var sss = SpreadsheetApp.openById(idToDLET); //replace with source ID
+ var ss = sss.getSheetByName('bar'); //replace with source Sheet tab name
+ var range = ss.getRange('B1:J'); //assign the range you want to copy
+ var data = range.getValues();
+
+ var tss = SpreadsheetApp.openById('1bBweWp6RILGlnoIpsdheTKbWUyZEUDXX9L3DHjyLjy0'); //replace with destination ID
+ var ts = tss.getSheetByName('Data'); //replace with destination Sheet tab name
+ //ts.getRange(ts.getLastRow()+1, 1,5,5).setValues(data); //you will need to define the size of the copied data see getRange()
+  ts.getRange(1, 1, data.length, data[0].length).setValues(data);
+}
