@@ -1,0 +1,13 @@
+function deleteDocByName(fileName){
+  var myFolder = DriveApp.getFolderById('0B2P**************Zkk');
+
+thisFile = myFolder.getFilesByName('Data.xlsx');
+
+while (thisFile.hasNext()) {
+  var eachFile = thisFile.next();
+  var idToDLET = eachFile.getId();
+  Logger.log('idToDLET: ' + idToDLET);
+
+  var rtrnFromDLET = Drive.Files.remove(idToDLET);
+};
+    }
